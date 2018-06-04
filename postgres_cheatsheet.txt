@@ -1,0 +1,11 @@
+# Start new Postgres Docker
+docker run --name some-protgres -p 5432:5432 -d postgres
+
+# psql to docker Postgres
+docker run -it --rm --link some-postgres:postgres postgres psql -h postgres -U postgres
+
+# Get docker Postgres IP
+docker inspect <container ID> | grep "IPAddress"
+
+# Inside pqsql, to quit
+\q
